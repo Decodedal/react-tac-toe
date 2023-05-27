@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import './toe.css'
 
@@ -112,8 +110,8 @@ function App() {
       </div>
       <p>Wins</p>
       <div className='score-display'>
-        <p>Player X : {score.x}</p>
-        <p>Player O : {score.O}</p>
+        <p>X : {score.x}</p>
+        <p>O : {score.O}</p>
       </div>
       <button onClick={() => {setGameArr([['','',''],['','',''],['','','']]), setWinningLine([])}}>New Game</button>
     </div>
