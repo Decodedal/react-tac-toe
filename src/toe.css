@@ -1,0 +1,154 @@
+.box{
+    border: 2px solid white;
+    height: 3em;
+    width: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gainsboro;
+    font-size: 2em;
+}
+
+.game-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    position: relative;
+}
+
+.score-display{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.winning-cell{
+    color: brown;
+}
+
+
+.winning-cell.top-row::after {
+  content: "";
+  position: absolute;
+  top: 16%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: red;
+  animation: strike-through 1s ease-in-out forwards;
+}
+
+
+.winning-cell.middle-row::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: red;
+  animation: strike-through 1s ease-in-out forwards;
+}
+
+
+.winning-cell.bottom-row::after {
+  content: "";
+  position: absolute;
+  top: 83%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: red;
+  animation: strike-through 1s ease-in-out forwards;
+}
+
+
+.winning-cell.left-column::after {
+    content: "";
+    position: absolute;
+    left: 16%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: red;
+    animation: vertical 1s ease-in-out forwards;
+  }
+  
+
+  .winning-cell.middle-column::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: red;
+    animation: vertical 1s ease-in-out forwards;
+  }
+  
+
+  .winning-cell.right-column::after {
+    content: "";
+    position: absolute;
+    left: 83%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: red;
+    animation: vertical 1s ease-in-out forwards;
+  }
+  
+  /* Main diagonal */
+.winning-cell.main-diagonal::after {
+    content: "";
+    position: absolute;
+    width: 141%; /* sqrt(2) = 1.414, approx 141% for a 45 degree line */
+    height: 2px;
+    background: red;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: diagonal 1s ease-in-out forwards;
+  }
+  
+  /* Counter diagonal */
+  .winning-cell.counter-diagonal::after {
+    content: "";
+    position: absolute;
+    width: 151%; /* sqrt(2) = 1.414, approx 141% for a 45 degree line */
+    height: 2px;
+    background: red;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    animation: diagonal 1s ease-in-out forwards;
+  }
+  
+  @keyframes diagonal {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 140%;
+    }
+  }
+  
+
+@keyframes strike-through {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes vertical {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+  
